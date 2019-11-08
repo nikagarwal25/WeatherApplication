@@ -29,12 +29,10 @@ for(var i=0; i<listOfCitiesEl.length; i++)
                     var resultWeather = {
                         "London": "26°C, Sunny", "New York": "2°C, Rainy", "Tokyo": "-4°C, Rainy", "Delhi": "24°C, Clear", "Toronto": "10°C, Partly Cloudy", "Paris": "4°C, Cloudy"};
 
-                    tempContainerEl.display = "block";
                     tempValueEl.innerHTML = resultWeather[listOfCitiesEl[index].innerText];
                     console.log(listOfCitiesEl[index].innerHTML);
                     tempCityEl.innerHTML = listOfCitiesEl[index].innerHTML;
-                    tempContainerEl.style.display = "block";
-                    listContainerEl.style.display = "none";
+                   
                 })
                 .catch(error => console.error('Unable to fetch data.', error));
         }                   
