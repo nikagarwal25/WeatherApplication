@@ -25,17 +25,19 @@ namespace WeatherApplication
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseDefaultFiles();
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("WeatherApp.html");
+            app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/WeatherApp.html", async context =>
+                endpoints.MapGet("/", async context =>
                 {
-                    //await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync("Hello World!");
                 });
             });
         }
