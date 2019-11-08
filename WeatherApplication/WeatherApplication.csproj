@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\WeatherApp.css" />
+    <None Include="wwwroot\WeatherApp.html" />
+    <None Include="wwwroot\WeatherApp.js" />
+  </ItemGroup>
 
 </Project>
