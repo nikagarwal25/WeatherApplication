@@ -1,20 +1,20 @@
 //Select elements
 
 const listContainerEl = document.querySelector(".listContainer");
-const listOfCitiesEl = document.querySelector(".listOfCities");
+const listOfCitiesEl = document.getElementsByTagName("li");
 
 const tempContainerEl = document.querySelector(".container");
 const tempValueEl = document.querySelector(".value p");
 const tempDescEl = document.querySelector(".description p");
-//const tempCityEl = document.querySelector(".city p");
+const tempCityEl = document.querySelector(".city p");
 const goBackBtnEl = document.getElementById("goBack");
 //click handler
 
 //const city=["London, GB", "New York, US", "Tokyo, Japan", "Delhi, India", "Toronto, Canada", "Paris, France"];
-for(var i=0; i<listOfCitiesEl.children.length; i++)
+for(var i=0; i<listOfCitiesEl.length; i++)
 {
 	(function(index){
-        listOfCitiesEl.children[i].onclick = function(){
+        listOfCitiesEl[i].onclick = function(){
             //run Fake API to get data 
             fetch("https://localhost:44382", {
                 method: 'GET',
@@ -23,10 +23,16 @@ for(var i=0; i<listOfCitiesEl.children.length; i++)
                     'Content-Type': 'application/json'
                 }
             })                
-                .then(() => {                       
-                    tempValueEl.innerHTML = `26°<span>C</span>`;
-                    tempDescEl.innerHTML = `Sunny`;
+                .then(() => {
+                    // assuming the api returned the following data:
 
+                    var resultWeather = {
+                        "London": "26°C, Sunny", "New York": "2°C, Rainy", "Tokyo": "-4°C, Rainy", "Delhi": "24°C, Clear", "Toronto": "10°C, Partly Cloudy" };
+
+                    tempContainerEl.display = "block";
+                    tempValueEl.innerHTML = resultWeather[listOfCitiesEl[index].innerText];
+                    console.log(listOfCitiesEl[index].innerHTML);
+                    tempCityEl.innerHTML = listOfCitiesEl[index].innerHTML;
                     tempContainerEl.style.display = "block";
                     listContainerEl.style.display = "none";
                 })
