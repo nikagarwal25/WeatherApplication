@@ -27,7 +27,7 @@ for(var i=0; i<listOfCitiesEl.length; i++)
                     // assuming the api returned the following data:
 
                     var resultWeather = {
-                        "London": "26°C, Sunny", "New York": "2°C, Rainy", "Tokyo": "-4°C, Rainy", "Delhi": "24°C, Clear", "Toronto": "10°C, Partly Cloudy" };
+                        "London": "26°C, Sunny", "New York": "2°C, Rainy", "Tokyo": "-4°C, Rainy", "Delhi": "24°C, Clear", "Toronto": "10°C, Partly Cloudy", "Paris": "4°C, Cloudy"};
 
                     tempContainerEl.display = "block";
                     tempValueEl.innerHTML = resultWeather[listOfCitiesEl[index].innerText];
